@@ -20,9 +20,6 @@ namespace PairingTest.Web.Controllers
             var viewModel = new QuestionnaireViewModel();
             viewModel.QuestionnaireTitle = "My expected questions";
 
-            // Setup ViewBag
-            ViewBag.Title = viewModel.QuestionnaireTitle;
-
             return View(viewModel);
         }
     }
