@@ -9,6 +9,6 @@ namespace PairingTest.Web.Models
     {
         public string ApplicationName { get { return "Questionnaire application"; } }
 
-        public string PageTitle { get; set; }
+        public virtual string PageTitle { get; set; }
     }
 }

@@ -146,6 +146,7 @@
     <Compile Include="Middleware\DependencyInjection\Container.cs" />
     <Compile Include="Middleware\Http\HttpClientContainer.cs" />
     <Compile Include="Middleware\Http\IHttpClientContainer.cs" />
+    <Compile Include="Models\ErrorViewModel.cs" />
     <Compile Include="Models\QuestionnaireViewModel.cs" />
     <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -180,6 +181,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Oops.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

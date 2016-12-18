@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using Newtonsoft.Json.Linq;
@@ -26,7 +27,7 @@ namespace PairingTest.Web.Controllers
             var httpClient = _httpClientContainer.Get(QuestionnaireServiceUri);
             var httpResponse = await httpClient.GetAsync("Questions");
             if (!httpResponse.IsSuccessStatusCode)
-            { /*Errors handled later*/}
+                return View("Oops", new ErrorViewModel(HttpStatusCode.ServiceUnavailable, "An underlying service is now unavailable. Please try again later."));
 
             var content = await httpResponse.Content.ReadAsStringAsync();
             var jObject = JObject.Parse(content);
