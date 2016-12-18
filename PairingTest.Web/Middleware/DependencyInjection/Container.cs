@@ -20,7 +20,7 @@ namespace PairingTest.Web.Middleware.DependencyInjection
             // Register transients
 
             // Register standalone initializers
-            RegisterInitializer<QuestionnaireController>(x => { x.QuestionnaireServiceUri = ConfigurationManager.AppSettings["QuestionnaireServiceUri"]; });
+            RegisterInitializer<QuestionnaireController>(x => { x.QuestionnaireServiceUri = new Uri(ConfigurationManager.AppSettings["QuestionnaireServiceUri"]); });
 
             // Extensions
             this.RegisterMvcControllers();

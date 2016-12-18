@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using PairingTest.Web.Middleware.Http;
 using PairingTest.Web.Models;
 
@@ -8,7 +9,7 @@ namespace PairingTest.Web.Controllers
     {
         private readonly IHttpClientContainer _httpClientContainer;
 
-        public string QuestionnaireServiceUri { get; set; }
+        public Uri QuestionnaireServiceUri { get; set; }
 
         public QuestionnaireController(IHttpClientContainer httpClientContainer)
         {
@@ -18,6 +19,7 @@ namespace PairingTest.Web.Controllers
         public ViewResult Index()
         {
             var viewModel = new QuestionnaireViewModel();
+
             viewModel.QuestionnaireTitle = "My expected questions";
 
             return View(viewModel);
