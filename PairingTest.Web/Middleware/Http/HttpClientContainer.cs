@@ -16,7 +16,10 @@ namespace PairingTest.Web.Middleware.Http
         /// <inheritdoc/>
         public HttpClient Get(Uri baseAddress)
         {
-            throw new NotImplementedException();
+            if (!_innerCollection.ContainsKey(baseAddress))
+                _innerCollection.Add(baseAddress, new HttpClient { BaseAddress = baseAddress });
+
+            return _innerCollection[baseAddress];
         }
     }
 }
