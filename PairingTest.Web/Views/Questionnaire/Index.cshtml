@@ -1,16 +1,14 @@
 ﻿@model PairingTest.Web.Models.QuestionnaireViewModel
-<html>
-<head>
-    <title>@Model.QuestionnaireTitle</title>
-</head>
-<body>
-@if (Model.QuestionsText != null)
-{
-    foreach (var question in Model.QuestionsText)
-    {
-    <div>@question</div>
-    }
-}
 
-</body>
-</html>
+@{
+    <title>@Model.QuestionnaireTitle</title>
+    <div>
+        @if (Model.QuestionsText != null)
+        {
+            foreach (var question in Model.QuestionsText)
+            {
+                <div>@question</div>
+            }
+        }
+    </div>
+}

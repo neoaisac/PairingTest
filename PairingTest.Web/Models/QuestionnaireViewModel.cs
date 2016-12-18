@@ -2,7 +2,7 @@
 
 namespace PairingTest.Web.Models
 {
-    public class QuestionnaireViewModel
+    public class QuestionnaireViewModel : ViewModel
     {
         public string QuestionnaireTitle { get; set; }
         public IList<string> QuestionsText { get; set; }

@@ -8,6 +8,8 @@ namespace PairingTest.Web.Controllers
     {
         private readonly IHttpClientContainer _httpClientContainer;
 
+        public string QuestionnaireServiceUri { get; set; }
+
         public QuestionnaireController(IHttpClientContainer httpClientContainer)
         {
             _httpClientContainer = httpClientContainer;
@@ -17,6 +19,9 @@ namespace PairingTest.Web.Controllers
         {
             var viewModel = new QuestionnaireViewModel();
             viewModel.QuestionnaireTitle = "My expected questions";
+
+            // Setup ViewBag
+            ViewBag.Title = viewModel.QuestionnaireTitle;
 
             return View(viewModel);
         }
