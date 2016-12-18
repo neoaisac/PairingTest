@@ -20,6 +20,7 @@ namespace PairingTest.Web.Controllers
             _httpClientContainer = httpClientContainer;
         }
 
+        [HttpGet]
         public async Task<ViewResult> Index()
         {
             var viewModel = new QuestionnaireViewModel();
@@ -29,12 +30,20 @@ namespace PairingTest.Web.Controllers
             if (!httpResponse.IsSuccessStatusCode)
                 return View("Oops", new ErrorViewModel(HttpStatusCode.ServiceUnavailable, "An underlying service is now unavailable. Please try again later."));
 
+            // TODO: Share API model in separate library. Then we can use ReadAsAsync<T> extensions.
             var content = await httpResponse.Content.ReadAsStringAsync();
             var jObject = JObject.Parse(content);
 
             viewModel.QuestionnaireTitle = jObject["QuestionnaireTitle"].Value<string>();
             viewModel.QuestionsText = jObject["QuestionsText"].Values<string>().ToArray();
 
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public ViewResult Index(QuestionnaireViewModel viewModel)
+        {
+            // Do nothing for now, apparently
             return View(viewModel);
         }
     }
