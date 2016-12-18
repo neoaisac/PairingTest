@@ -186,9 +186,6 @@
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
-  </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="Views\_ViewStart.cshtml" />
