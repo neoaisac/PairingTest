@@ -46,7 +46,7 @@ namespace PairingTest.Unit.Tests.Web
                     .Returns(Task.FromResult(GetHttpResponseMessage()));
 
                 var httpClientContainerMock = new Mock<IHttpClientContainer>();
-                httpClientContainerMock.Setup(x => x.Get(It.IsAny<Uri>())).Returns(new HttpClient(httpMessageHandlerMock.Object));
+                httpClientContainerMock.Setup(x => x.Get(It.IsAny<Uri>())).Returns(new HttpClient(httpMessageHandlerMock.Object) { BaseAddress = new Uri("http://localhost/") });
 
                 return httpClientContainerMock.Object;
             }
@@ -58,8 +58,8 @@ namespace PairingTest.Unit.Tests.Web
             // Arrange
             var questionnaireController = new QuestionnaireController(StubFactory.GetHttpClientContainer());
 
-            //Act
-            var result = (QuestionnaireViewModel)questionnaireController.Index().ViewData.Model;
+            // Act
+            var result = (QuestionnaireViewModel)questionnaireController.Index().Result.ViewData.Model;
 
             // Assert
             Assert.That(result.QuestionnaireTitle, Is.EqualTo("Test questionnaire title"));
@@ -71,7 +71,7 @@ namespace PairingTest.Unit.Tests.Web
             var questionnaireController = new QuestionnaireController(StubFactory.GetHttpClientContainer());
 
             // Act
-            var result = (QuestionnaireViewModel)questionnaireController.Index().ViewData.Model;
+            var result = (QuestionnaireViewModel)questionnaireController.Index().Result.ViewData.Model;
 
             // Assert
             Assert.That(result.QuestionsText.Count, Is.EqualTo(2));

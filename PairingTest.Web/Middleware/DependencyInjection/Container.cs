@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using PairingTest.Web.Controllers;
 using PairingTest.Web.Middleware.Http;
 using SimpleInjector;
