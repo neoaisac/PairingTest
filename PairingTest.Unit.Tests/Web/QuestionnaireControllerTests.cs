@@ -11,12 +11,12 @@ namespace PairingTest.Unit.Tests.Web
         public void ShouldGetQuestions()
         {
             //Arrange
-            var expectedTitle = "My expected quesitons";
+            var expectedTitle = "My expected questions";
             var questionnaireController = new QuestionnaireController();
 
             //Act
             var result = (QuestionnaireViewModel)questionnaireController.Index().ViewData.Model;
-            
+
             //Assert
             Assert.That(result.QuestionnaireTitle, Is.EqualTo(expectedTitle));
         }

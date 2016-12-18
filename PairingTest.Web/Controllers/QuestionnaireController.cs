@@ -5,14 +5,14 @@ namespace PairingTest.Web.Controllers
 {
     public class QuestionnaireController : Controller
     {
-          /* ASYNC ACTION METHOD... IF REQUIRED... */
-//        public async Task<ViewResult> Index()
-//        {
-//        }
+        /* ASYNC ACTION METHOD... IF REQUIRED... */
+        // public async Task<ViewResult> Index() { }
 
         public ViewResult Index()
         {
-            return View(new QuestionnaireViewModel());
+            var viewModel = new QuestionnaireViewModel();
+            viewModel.QuestionnaireTitle = "My expected questions";
+            return View(viewModel);
         }
     }
 }
